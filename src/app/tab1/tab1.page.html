@@ -13,6 +13,40 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-button *ngIf="!agregar" (click)="toglar()" color="success">Nuevo elemento</ion-button>
+  
+  <ion-grid *ngIf="agregar">
+    <ion-row>
+      <ion-col size = 2>Nombre</ion-col>
+      <ion-col>
+        <ion-input [(ngModel)] = "nombre"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size = 2>Apellidos</ion-col>
+      <ion-col>
+        <ion-input [(ngModel)] = "apellido"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size = 2>Matricula</ion-col>
+      <ion-col>
+        <ion-input [(ngModel)] = "matricula"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size = 1>
+        <ion-button (click)="toglar()" color="danger">Cancelar</ion-button>
+      </ion-col>
+      <ion-col size = 1>
+        <ion-button (click)="nuevoalumno()" color="success">Guardar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
   <!--Imprime a cada alumno-->
   <ion-grid *ngFor="let alumno of alumnos">
     <ion-row>
@@ -24,7 +58,7 @@
                 <ion-col size=8> <!--Columna datos-->
                   <ion-row> <!--Row nombre-->
                     <ion-col>
-                      Nombre:
+                      Nombre
                     </ion-col>
                     <ion-col>
                       {{alumno.nombre}}
@@ -40,7 +74,7 @@
                   </ion-row>
                   <ion-row> <!--Row matricula-->
                     <ion-col>
-                      Apellidos
+                      Matricula
                     </ion-col>
                     <ion-col>
                       {{alumno.matricula}}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
@@ -6,9 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
   constructor() {}
-
+  agregar: boolean = false
   alumnos = [
     {
       "nombre": "Abraham",
@@ -66,4 +65,22 @@ export class Tab1Page {
       "matricula": "ABC123",
     }
   ]
+
+  toglar():void {
+    this.agregar = !this.agregar
+  }
+
+  @Input() nombre: string = ""
+  @Input() apellido: string = ""
+  @Input() matricula: string = ""
+
+  nuevoalumno():void {
+    var nuevo_al = {
+      "nombre": this.nombre,
+      "Apellido": this.apellido,
+      "matricula": this.matricula,
+    }
+    this.alumnos.push(nuevo_al)
+  }
+
 }
