@@ -17,52 +17,52 @@ export class Tab1Page {
     {
       "nombre": "Aylin",
       "Apellido": "Demecti",
-      "matricula": "ABC123",
+      "matricula": "BBIWAD",
     },
     {
       "nombre": "Brian",
       "Apellido": "Esquivel",
-      "matricula": "ABC123",
+      "matricula": "DWAKDAW",
     },
     {
       "nombre": "Diego",
       "Apellido": "Dávila",
-      "matricula": "ABC123",
+      "matricula": "NIDABW",
     },
     {
       "nombre": "Diego",
       "Apellido": "Jasso",
-      "matricula": "ABC123",
+      "matricula": "123BJ",
     },
     {
       "nombre": "Julio",
       "Apellido": "Manuel",
-      "matricula": "ABC123",
+      "matricula": "GFD342",
     },
     {
       "nombre": "Luis",
       "Apellido": "Armando",
-      "matricula": "ABC123",
+      "matricula": "DAW321",
     },
     {
       "nombre": "Luis",
       "Apellido": "Otoniel",
-      "matricula": "ABC123",
+      "matricula": "AD324A",
     },
     {
       "nombre": "Manuel",
       "Apellido": "Antonio",
-      "matricula": "ABC123",
+      "matricula": "321SDF",
     },
     {
       "nombre": "Rogel",
       "Apellido": "Axel",
-      "matricula": "ABC123",
+      "matricula": "123DWASD",
     },
     {
       "nombre": "Sergio",
       "Apellido": "Gutierrez",
-      "matricula": "ABC123",
+      "matricula": "321DAS",
     }
   ]
 

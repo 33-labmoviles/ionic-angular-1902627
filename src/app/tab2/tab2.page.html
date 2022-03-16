@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let alumno of alumnos">
+    <ion-item *ngFor="let alumno of alumnos" [routerLink]="['alumno',alumno.matricula]">
       <ion-avatar slot="start">
         <img src="assets/foto.jpg" alt="">
       </ion-avatar>
