@@ -12,5 +12,9 @@ export class Tab2Page {
     this.alumnos = servAl.getAlumnos()
   }
 
+  eliminarAlumno(matricula: string) {
+    this.servAl.deleteAlumno(matricula)
+  }
+
   alumnos = []
 }

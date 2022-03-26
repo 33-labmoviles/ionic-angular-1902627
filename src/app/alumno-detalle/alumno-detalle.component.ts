@@ -15,6 +15,9 @@ export class AlumnoDetalleComponent implements OnInit {
   ngOnInit() {
   }
 
+  matriculaid = this.ruta.snapshot.params["id"]
+
+  resultado = this.servAl.getAlumno(this.matriculaid)
   //Muestra Action Sheet
   async presentActionSheet() {
     const actionSheet = await this.AcSheet.create({
@@ -31,6 +34,8 @@ export class AlumnoDetalleComponent implements OnInit {
         },
         handler: () => {
           console.log('Delete clicked');
+          window.alert("Alumno eliminado")
+          this.eliminarAlumno()
         }
       }, {
         text: 'Share',
@@ -60,7 +65,8 @@ export class AlumnoDetalleComponent implements OnInit {
     console.log('onDidDismiss resolved with role and data', role, data);
   }
 
-  matriculaid = this.ruta.snapshot.params["id"]
-
-  resultado = this.servAl.getAlumno(this.matriculaid)
+  //Elimina el elemento
+  eliminarAlumno() {
+    this.servAl.deleteAlumno(this.matriculaid)
+  } 
 }

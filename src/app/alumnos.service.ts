@@ -31,6 +31,20 @@ export class AlumnosService {
     return alumno
   }
 
+  findAlumno(matricula: string) {
+    for(let x=0; x<this.alumnos.length;x++) {
+      if(matricula == this.alumnos[x].matricula) {
+        return x
+      }
+    }
+    //Si no halla la matrícula es porque hubo error
+  }
+
+  deleteAlumno(matricula: string) {
+    var indice = this.findAlumno(matricula)
+    this.alumnos.splice(indice, 1)
+  }
+
   alumnos = [
     {
       "nombre": "Abraham",
