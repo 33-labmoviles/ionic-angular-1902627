@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlumnosService } from '../alumnos.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,63 +8,9 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(private servAl: AlumnosService) {
+    this.alumnos = servAl.getAlumnos()
+  }
 
-  alumnos = [
-    {
-      "nombre": "Abraham",
-      "Apellido": "Ramírez",
-      "matricula": "ABC123",
-    },
-    {
-      "nombre": "Aylin",
-      "Apellido": "Demecti",
-      "matricula": "BBIWAD",
-    },
-    {
-      "nombre": "Brian",
-      "Apellido": "Esquivel",
-      "matricula": "DWAKDAW",
-    },
-    {
-      "nombre": "Diego",
-      "Apellido": "Dávila",
-      "matricula": "NIDABW",
-    },
-    {
-      "nombre": "Diego",
-      "Apellido": "Jasso",
-      "matricula": "123BJ",
-    },
-    {
-      "nombre": "Julio",
-      "Apellido": "Manuel",
-      "matricula": "GFD342",
-    },
-    {
-      "nombre": "Luis",
-      "Apellido": "Armando",
-      "matricula": "DAW321",
-    },
-    {
-      "nombre": "Luis",
-      "Apellido": "Otoniel",
-      "matricula": "AD324A",
-    },
-    {
-      "nombre": "Manuel",
-      "Apellido": "Antonio",
-      "matricula": "321SDF",
-    },
-    {
-      "nombre": "Rogel",
-      "Apellido": "Axel",
-      "matricula": "123DWASD",
-    },
-    {
-      "nombre": "Sergio",
-      "Apellido": "Gutierrez",
-      "matricula": "321DAS",
-    }
-  ]
+  alumnos = []
 }

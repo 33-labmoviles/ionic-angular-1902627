@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AlumnosService } from '../alumnos.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,81 +7,23 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  constructor() {}
+  constructor(private servAl: AlumnosService) {
+    this.alumnos = servAl.getAlumnos()
+  }
+
   agregar: boolean = false
   alumnos = [
-    {
-      "nombre": "Abraham",
-      "Apellido": "Ramírez",
-      "matricula": "ABC123",
-    },
-    {
-      "nombre": "Aylin",
-      "Apellido": "Demecti",
-      "matricula": "BBIWAD",
-    },
-    {
-      "nombre": "Brian",
-      "Apellido": "Esquivel",
-      "matricula": "DWAKDAW",
-    },
-    {
-      "nombre": "Diego",
-      "Apellido": "Dávila",
-      "matricula": "NIDABW",
-    },
-    {
-      "nombre": "Diego",
-      "Apellido": "Jasso",
-      "matricula": "123BJ",
-    },
-    {
-      "nombre": "Julio",
-      "Apellido": "Manuel",
-      "matricula": "GFD342",
-    },
-    {
-      "nombre": "Luis",
-      "Apellido": "Armando",
-      "matricula": "DAW321",
-    },
-    {
-      "nombre": "Luis",
-      "Apellido": "Otoniel",
-      "matricula": "AD324A",
-    },
-    {
-      "nombre": "Manuel",
-      "Apellido": "Antonio",
-      "matricula": "321SDF",
-    },
-    {
-      "nombre": "Rogel",
-      "Apellido": "Axel",
-      "matricula": "123DWASD",
-    },
-    {
-      "nombre": "Sergio",
-      "Apellido": "Gutierrez",
-      "matricula": "321DAS",
-    }
   ]
+  @Input() nombre: string = ""
+  @Input() apellido: string = ""
+  @Input() matricula: string = ""
 
   toglar():void {
     this.agregar = !this.agregar
   }
 
-  @Input() nombre: string = ""
-  @Input() apellido: string = ""
-  @Input() matricula: string = ""
-
   nuevoalumno():void {
-    var nuevo_al = {
-      "nombre": this.nombre,
-      "Apellido": this.apellido,
-      "matricula": this.matricula,
-    }
-    this.alumnos.push(nuevo_al)
+    this.servAl.AgregarAlumno(this.nombre,this.apellido,this.matricula)
   }
 
 }
