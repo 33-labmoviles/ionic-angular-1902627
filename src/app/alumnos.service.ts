@@ -11,7 +11,7 @@ export class AlumnosService {
     return this.alumnos
   }
 
-  AgregarAlumno(nombre,apellido,matricula) {
+  AgregarAlumno(nombre: string,apellido: string,matricula: string) {
     var nuevo_al = {
       "nombre": nombre,
       "Apellido": apellido,

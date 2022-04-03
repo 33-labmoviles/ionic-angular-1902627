@@ -7,11 +7,38 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form #agregarAlumno="ngForm" (ngSubmit)="onSubmit(agregarAlumno)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size=2>Nombre</ion-col>
+        <ion-col>
+          <ion-input [(ngModel)]="Nombre" name = "nombreInput"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size=2>Apellidos</ion-col>
+        <ion-col>
+          <ion-input [(ngModel)]="Apellido" name = "apellidoInput"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size=2>Matricula</ion-col>
+        <ion-col>
+          <ion-input [(ngModel)]="Matricula" name = "matriculaInput"></ion-input>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row>
+    
+        <ion-col size=auto>
+          <ion-button color="danger" (click)="limpiarEntrada()">Limpiar</ion-button>
+        </ion-col>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+        <ion-col size=auto>
+          <ion-button type="submit" color="success">Guardar</ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
