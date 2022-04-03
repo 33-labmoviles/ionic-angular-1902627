@@ -1,4 +1,4 @@
-<ion-grid>
+<ion-grid *ngIf="resultado">
   <ion-row>
     <ion-col>
       Nombre: {{resultado.nombre}}
@@ -6,7 +6,7 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      Apellidos: {{resultado.Apellido}}
+      Apellidos: {{resultado.apellido}}
     </ion-col>
   </ion-row>
   <ion-row>

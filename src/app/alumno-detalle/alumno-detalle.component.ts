@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 import { AlumnosService } from '../alumnos.service';
 
+
+
 @Component({
   selector: 'app-alumno-detalle',
   templateUrl: './alumno-detalle.component.html',
@@ -10,14 +12,18 @@ import { AlumnosService } from '../alumnos.service';
 })
 export class AlumnoDetalleComponent implements OnInit {
 
-  constructor(private ruta: ActivatedRoute, public AcSheet: ActionSheetController, private servAl: AlumnosService) { }
-
-  ngOnInit() {
+  constructor(private ruta: ActivatedRoute, public AcSheet: ActionSheetController, private servAl: AlumnosService) { 
   }
 
-  matriculaid = this.ruta.snapshot.params["id"]
+  index = this.ruta.snapshot.params["id"]
+  resultado: any
 
-  resultado = this.servAl.getAlumno(this.matriculaid)
+  ngOnInit() {
+    this.servAl.getAlumnoObs(this.index).subscribe(res=> {
+      this.resultado = res
+    })
+  }
+
   //Muestra Action Sheet
   async presentActionSheet() {
     const actionSheet = await this.AcSheet.create({
@@ -67,6 +73,6 @@ export class AlumnoDetalleComponent implements OnInit {
 
   //Elimina el elemento
   eliminarAlumno() {
-    this.servAl.deleteAlumno(this.matriculaid)
+    this.servAl.deleteAlumno(this.index)
   } 
 }

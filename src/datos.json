@@ -1,0 +1,59 @@
+{
+  "alumnos": [
+    {
+      "nombre": "Abraham",
+      "apellido": "Ramírez",
+      "matricula": "ABC123"
+    },
+    {
+      "nombre": "Aylin",
+      "apellido": "Demecti",
+      "matricula": "BBIWAD"
+    },
+    {
+      "nombre": "Brian",
+      "apellido": "Esquivel",
+      "matricula": "DWAKDAW"
+    },
+    {
+      "nombre": "Diego",
+      "apellido": "Dávila",
+      "matricula": "NIDABW"
+    },
+    {
+      "nombre": "Diego",
+      "apellido": "Jasso",
+      "matricula": "123BJ"
+    },
+    {
+      "nombre": "Julio",
+      "apellido": "Manuel",
+      "matricula": "GFD342"
+    },
+    {
+      "nombre": "Luis",
+      "apellido": "Armando",
+      "matricula": "DAW321"
+    },
+    {
+      "nombre": "Luis",
+      "apellido": "Otoniel",
+      "matricula": "AD324A"
+    },
+    {
+      "nombre": "Manuel",
+      "apellido": "Antonio",
+      "matricula": "321SDF"
+    },
+    {
+      "nombre": "Rogel",
+      "apellido": "Axel",
+      "matricula": "123DWASD"
+    },
+    {
+      "nombre": "Sergio",
+      "apellido": "Gutierrez",
+      "matricula": "321DAS"
+    }
+  ]
+}

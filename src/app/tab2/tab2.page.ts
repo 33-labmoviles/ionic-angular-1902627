@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlumnosService } from '../alumnos.service';
 
 @Component({
@@ -6,15 +6,19 @@ import { AlumnosService } from '../alumnos.service';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
 
-  constructor(private servAl: AlumnosService) {
-    this.alumnos = servAl.getAlumnos()
+  constructor(private servAl: AlumnosService) {}
+
+  ngOnInit(): void {
+    this.servAl.getAlumnosObs().subscribe(res=> {
+      this.alumnos = res
+    })
   }
 
   eliminarAlumno(matricula: string) {
     this.servAl.deleteAlumno(matricula)
   }
 
-  alumnos = []
+  alumnos: any
 }
