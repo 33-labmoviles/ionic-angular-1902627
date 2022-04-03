@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnosService } from '../alumnos.service';
+import { Alumno } from 'src/Alumno';
+
 
 @Component({
   selector: 'app-tab2',
@@ -20,5 +22,5 @@ export class Tab2Page implements OnInit{
     this.servAl.deleteAlumno(matricula)
   }
 
-  alumnos: any
+  alumnos: Map<string,Alumno>
 }

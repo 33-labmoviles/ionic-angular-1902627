@@ -8,28 +8,28 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item-sliding *ngFor="let alumno of alumnos; let i = index">
-      <div *ngIf="alumno">
-      <!--Opciones Inicio-->
-      <ion-item-options side="start">
-        <ion-item-option color="success"><ion-icon name="heart" size="large" style = "color: white;"></ion-icon></ion-item-option>
-      </ion-item-options>
+    <ion-item-sliding *ngFor="let alumno of alumnos|keyvalue">
+      <div *ngIf="alumno.value">
+        <!--Opciones Inicio-->
+        <ion-item-options side="start">
+          <ion-item-option color="success"><ion-icon name="heart" size="large" style = "color: white;"></ion-icon></ion-item-option>
+        </ion-item-options>
 
-      <!--Item-->
-      <ion-item [routerLink]="['alumno',i]">
-        <ion-avatar slot="start">
-          <img src="assets/foto.jpg" alt="">
-        </ion-avatar>
-        <ion-label>
-          <h2>{{alumno.nombre}} {{alumno.apellido}}</h2>
-          <p>{{alumno.matricula}}</p>
-        </ion-label>
-      </ion-item>
+        <!--Item-->
+        <ion-item [routerLink]="['alumno',alumno.key]">
+          <ion-avatar slot="start">
+            <img src="assets/foto.jpg" alt="">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{alumno.value.nombre}} {{alumno.value.apellido}}</h2>
+            <p>{{alumno.value.matricula}}</p>
+          </ion-label>
+        </ion-item>
 
-      <!--Opciones Fin-->
-      <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="eliminarAlumno(alumno.matricula)"><ion-icon name="trash" size="large" style = "color: white;"></ion-icon></ion-item-option>
-      </ion-item-options>
+        <!--Opciones Fin-->
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="eliminarAlumno(alumno.key)"><ion-icon name="trash" size="large" style = "color: white;"></ion-icon></ion-item-option>
+        </ion-item-options>
       </div>
     </ion-item-sliding>
   </ion-list>
