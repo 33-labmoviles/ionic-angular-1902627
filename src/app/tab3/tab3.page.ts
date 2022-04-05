@@ -22,7 +22,7 @@ export class Tab3Page {
 
   onSubmit(form: NgForm) {
     var alumno: Alumno = form.value
-    this.AlServ.AgregarAlumno(alumno.nombreInput,alumno.apellidoInput,alumno.matriculaInput)
+    this.AlServ.AgregarAlumno(alumno.nombreInput,alumno.apellidoInput,alumno.matriculaInput).subscribe()
   }
 
   limpiarEntrada() {
