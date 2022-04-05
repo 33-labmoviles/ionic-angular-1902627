@@ -73,6 +73,6 @@ export class AlumnoDetalleComponent implements OnInit {
 
   //Elimina el elemento
   eliminarAlumno() {
-    this.servAl.deleteAlumno(this.index)
+    this.servAl.deleteAlumno(this.index).subscribe()
   } 
 }
