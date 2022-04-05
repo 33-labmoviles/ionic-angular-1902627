@@ -11,9 +11,7 @@ export class Tab1Page implements OnInit{
   constructor(private servAl: AlumnosService) {
   }
 
-  ngOnInit() {
-    this.actualizardatos()
-  }
+  ngOnInit() {}
 
   agregar: boolean = false
   alumnos: Map<string,Alumno>
@@ -36,5 +34,9 @@ export class Tab1Page implements OnInit{
     this.servAl.getAlumnosObs().subscribe(res=> {
       this.alumnos = res
     })
+  }
+
+  ionViewWillEnter() {
+    this.actualizardatos()
   }
 }

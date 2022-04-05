@@ -12,11 +12,7 @@ export class Tab2Page implements OnInit{
 
   constructor(private servAl: AlumnosService) {}
 
-  ngOnInit(): void {
-    this.servAl.getAlumnosObs().subscribe(res=> {
-      this.alumnos = res
-    })
-  }
+  ngOnInit(): void {}
 
   eliminarAlumno(matricula: string) {
     this.servAl.deleteAlumno(matricula).subscribe(res=> {
@@ -28,6 +24,10 @@ export class Tab2Page implements OnInit{
     this.servAl.getAlumnosObs().subscribe(res=> {
       this.alumnos = res
     })
+  }
+
+  ionViewWillEnter() {
+    this.actualizardatos()
   }
 
   alumnos: Map<string,Alumno>
