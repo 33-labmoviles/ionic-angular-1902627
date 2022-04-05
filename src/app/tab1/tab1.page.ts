@@ -26,9 +26,10 @@ export class Tab1Page implements OnInit{
     this.agregar = !this.agregar
   }
 
-  nuevoalumno():void {
-    this.servAl.AgregarAlumno(this.nombre,this.apellido,this.matricula)
-    this.actualizardatos()
+  nuevoalumno() {
+    this.servAl.AgregarAlumno(this.nombre,this.apellido,this.matricula).subscribe(res=>{
+      this.actualizardatos()
+    })
   }
 
   actualizardatos() {

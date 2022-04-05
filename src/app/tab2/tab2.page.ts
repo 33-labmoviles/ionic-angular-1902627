@@ -19,7 +19,15 @@ export class Tab2Page implements OnInit{
   }
 
   eliminarAlumno(matricula: string) {
-    this.servAl.deleteAlumno(matricula)
+    this.servAl.deleteAlumno(matricula).subscribe(res=> {
+      this.actualizardatos()
+    })
+  }
+
+  actualizardatos() {
+    this.servAl.getAlumnosObs().subscribe(res=> {
+      this.alumnos = res
+    })
   }
 
   alumnos: Map<string,Alumno>

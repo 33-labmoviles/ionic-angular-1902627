@@ -26,12 +26,11 @@ export class AlumnosService {
       "matricula": matricula
     }
 
-    this.http.post('https://base-alumnos-27492-default-rtdb.firebaseio.com/alumnos.json', nuevo_al).subscribe()
+    return this.http.post('https://base-alumnos-27492-default-rtdb.firebaseio.com/alumnos.json', nuevo_al)
   }
 
   //DELETE
   deleteAlumno(id: string) {
-    this.http.delete('https://base-alumnos-27492-default-rtdb.firebaseio.com/alumnos/' + id + '.json').subscribe()
-    console.log('https://base-alumnos-27492-default-rtdb.firebaseio.com/alumnos/' + id + '.json')
+    return this.http.delete('https://base-alumnos-27492-default-rtdb.firebaseio.com/alumnos/' + id + '.json')
   }
 }
