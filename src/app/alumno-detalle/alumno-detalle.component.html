@@ -15,4 +15,23 @@
     </ion-col>
   </ion-row>
   <ion-button expand="block" (click)="presentActionSheet()">Opciones</ion-button>
+  <ion-row>
+    <ion-col>
+      <!--Form para editar alumno-->
+      <form #editarAlumno="ngForm" *ngIf="editando" (ngSubmit)="onSubmit(editarAlumno)">
+        <ion-row>
+          <label for="nuevoNombre">Nombre: </label>
+          <input type="text" id="nuevoNombre" name="NombreInput" [(ngModel)]="Nombre">
+        </ion-row>
+        <ion-row>
+          <label for="nuevoApellido">Apellido: </label>
+          <input type="text" id="nuevoApellido" name="ApellidoInput" [(ngModel)]="Apellido">
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-button color="success" type="submit">Modificar</ion-button></ion-col>
+          <ion-col><ion-button color="danger" (click)="quitarEdicion()">Cancelar</ion-button></ion-col>
+        </ion-row>
+      </form>
+    </ion-col>
+  </ion-row>
 </ion-grid>

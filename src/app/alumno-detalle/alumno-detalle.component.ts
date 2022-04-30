@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 import { AlumnosService } from '../alumnos.service';
-
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -17,6 +17,10 @@ export class AlumnoDetalleComponent implements OnInit {
 
   index = this.ruta.snapshot.params["id"]
   resultado: any
+  editando: boolean = false
+  
+  Nombre: string = ""
+  Apellido: string = ""
 
   ngOnInit() {
     this.servAl.getAlumnoObs(this.index).subscribe(res=> {
@@ -44,11 +48,11 @@ export class AlumnoDetalleComponent implements OnInit {
           this.eliminarAlumno()
         }
       }, {
-        text: 'Share',
-        icon: 'share',
+        text: 'Editar',
+        icon: 'pencil-outline',
         data: 10,
         handler: () => {
-          console.log('Share clicked');
+          this.editarAlumno()
         }
       }, {
         text: 'Favorite',
@@ -75,4 +79,24 @@ export class AlumnoDetalleComponent implements OnInit {
   eliminarAlumno() {
     this.servAl.deleteAlumno(this.index).subscribe()
   } 
+
+  //Enviar Edición
+  onSubmit(Form: NgForm) {
+    this.servAl.EditarAluno(this.Nombre, this.Apellido, this.resultado.matricula, this.index).subscribe(
+      res=>{
+        window.alert("Alumno Modificado")
+        console.log(res)
+      }
+    )
+  }
+
+  //Muestra para editar al alumno
+  editarAlumno() {
+    this.editando = true;
+  }
+
+  //Y ano muestra para editar
+  quitarEdicion() {
+    this.editando = false
+  }
 }

@@ -18,6 +18,16 @@ export class AlumnosService {
     return this.http.get('https://base-alumnos-27492-default-rtdb.firebaseio.com/alumnos/'+ id +'.json')
   }
 
+  //PUT
+  EditarAluno(nombre: string,apellido: string,matricula: string, id: string) {
+    var nuevo_al = {
+      "nombre": nombre,
+      "apellido": apellido,
+      "matricula": matricula
+    }
+    return this.http.put('https://base-alumnos-27492-default-rtdb.firebaseio.com/alumnos/'+ id +'.json', nuevo_al)
+  }
+
   //POST
   AgregarAlumno(nombre: string,apellido: string,matricula: string) {
     var nuevo_al = {
